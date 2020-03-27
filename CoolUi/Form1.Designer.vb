@@ -47,6 +47,9 @@ Partial Class Form1
         Me.GunaButton1 = New Guna.UI.WinForms.GunaButton()
         Me.NotifyIcon1 = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.GunaButton2 = New Guna.UI.WinForms.GunaButton()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.GunaLabel9 = New Guna.UI.WinForms.GunaLabel()
+        Me.GunaGoogleSwitch1 = New Guna.UI.WinForms.GunaGoogleSwitch()
         Me.GunaElipsePanel2.SuspendLayout()
         Me.GunaElipsePanel3.SuspendLayout()
         Me.GunaElipsePanel1.SuspendLayout()
@@ -343,11 +346,41 @@ Partial Class Form1
         Me.GunaButton2.TabIndex = 6
         Me.GunaButton2.Text = "Minimize"
         '
+        'Timer1
+        '
+        Me.Timer1.Enabled = True
+        Me.Timer1.Interval = 60000
+        '
+        'GunaLabel9
+        '
+        Me.GunaLabel9.AutoSize = True
+        Me.GunaLabel9.BackColor = System.Drawing.Color.Transparent
+        Me.GunaLabel9.Font = New System.Drawing.Font("Doubleplus", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GunaLabel9.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.GunaLabel9.Location = New System.Drawing.Point(12, 10)
+        Me.GunaLabel9.Name = "GunaLabel9"
+        Me.GunaLabel9.Size = New System.Drawing.Size(89, 13)
+        Me.GunaLabel9.TabIndex = 2
+        Me.GunaLabel9.Text = "C19MRU By SHADE"
+        '
+        'GunaGoogleSwitch1
+        '
+        Me.GunaGoogleSwitch1.BaseColor = System.Drawing.SystemColors.Control
+        Me.GunaGoogleSwitch1.CheckedOffColor = System.Drawing.Color.DarkGray
+        Me.GunaGoogleSwitch1.CheckedOnColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.GunaGoogleSwitch1.FillColor = System.Drawing.Color.White
+        Me.GunaGoogleSwitch1.Location = New System.Drawing.Point(441, 14)
+        Me.GunaGoogleSwitch1.Name = "GunaGoogleSwitch1"
+        Me.GunaGoogleSwitch1.Size = New System.Drawing.Size(38, 20)
+        Me.GunaGoogleSwitch1.TabIndex = 7
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 400)
+        Me.Controls.Add(Me.GunaGoogleSwitch1)
+        Me.Controls.Add(Me.GunaLabel9)
         Me.Controls.Add(Me.GunaButton2)
         Me.Controls.Add(Me.GunaButton1)
         Me.Controls.Add(Me.GunaControlBox1)
@@ -369,6 +402,7 @@ Partial Class Form1
         Me.GunaElipsePanel4.ResumeLayout(False)
         Me.GunaElipsePanel4.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -395,4 +429,7 @@ Partial Class Form1
     Friend WithEvents GunaLabel7 As Guna.UI.WinForms.GunaLabel
     Friend WithEvents NotifyIcon1 As NotifyIcon
     Friend WithEvents GunaButton2 As Guna.UI.WinForms.GunaButton
+    Friend WithEvents Timer1 As Timer
+    Friend WithEvents GunaLabel9 As Guna.UI.WinForms.GunaLabel
+    Friend WithEvents GunaGoogleSwitch1 As Guna.UI.WinForms.GunaGoogleSwitch
 End Class
