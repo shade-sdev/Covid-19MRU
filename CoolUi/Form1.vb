@@ -69,7 +69,7 @@ Public Class Form1
         pos10 = InStr(StrData2, "Coronavirus")
         pos10 = InStr(pos10 + 1, StrData2, "Cases:", vbTextCompare)
         pos11 = InStr(pos10 + 1, StrData2, "view by country", vbTextCompare)
-        pos12 = StrData2.Substring(pos10 + 81, pos11 - pos10 - 171)
+        pos12 = StrData2.Substring(pos10 + 69, pos11 - pos10 - 146)
         GunaLabel7.Text = pos12
 
         GunaCircleProgressBar4.Value = pos12
@@ -163,7 +163,7 @@ Public Class Form1
         pos2 = InStr(pos1 + 1, StrData, "Today", vbTextCompare)
         pos3 = StrData.Substring(pos1, pos2 - pos1 - 21)
         GunaLabel2.Text = pos3
-        NotifyIcon1.Text = "Hello"
+        NotifyIcon1.Text = "Cases" + pos3
 
         NotifyIcon1.BalloonTipTitle = "Covid"
         NotifyIcon1.ShowBalloonTip(pos3, "Cases", pos3, ToolTipIcon.Info)
