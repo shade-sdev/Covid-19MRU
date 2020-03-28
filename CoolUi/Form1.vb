@@ -36,19 +36,20 @@ Public Class Form1
         pos1 = InStr(StrData, "Cases")
         pos1 = InStr(pos1 + 1, StrData, ":", vbTextCompare)
         pos2 = InStr(pos1 + 1, StrData, "Today", vbTextCompare)
-        pos3 = StrData.Substring(pos1, pos2 - pos1 - 21)
+        pos3 = StrData.Substring(pos1 + 1, pos2 - pos1 - 4)
         GunaLabel2.Text = pos3
 
-        pos4 = InStr(StrData, "Cases: 81 |")
-        pos4 = InStr(pos1 + 1, StrData, "Today:", vbTextCompare)
-        pos5 = InStr(pos1 + 1, StrData, " | Death", vbTextCompare)
-        pos6 = StrData.Substring(pos4 + 23, pos5 - pos4 - 23)
+        pos4 = InStr(StrData, "Cases:")
+        pos4 = InStr(pos4 + 1, StrData, "Today:", vbTextCompare)
+        pos5 = InStr(pos4 + 1, StrData, " | Death", vbTextCompare)
+        pos6 = StrData.Substring(pos4 + 19, pos5 - pos4 - 19)
+
         GunaLabel4.Text = pos6
 
-        pos7 = InStr(StrData, "Today: 33")
-        pos7 = InStr(pos1 + 1, StrData, " | Death:", vbTextCompare)
-        pos8 = InStr(pos1 + 1, StrData, "Opening", vbTextCompare)
-        pos9 = StrData.Substring(pos7 + 26, pos8 - pos7 - 450)
+        pos7 = InStr(StrData, "Today")
+        pos7 = InStr(pos7 + 1, StrData, " | Death:", vbTextCompare)
+        pos8 = InStr(pos7 + 1, StrData, "Opening", vbTextCompare)
+        pos9 = StrData.Substring(pos7 + 9, pos8 - pos7 - 282)
         GunaLabel5.Text = pos9
 
         GunaCircleProgressBar1.Value = pos3
@@ -85,7 +86,6 @@ Public Class Form1
     Private Sub GunaButton1_Click(sender As Object, e As EventArgs) Handles GunaButton1.Click
 
 
-
         Dim besafe As String = "https://besafemoris.mu/"
 
         Dim worldometer As String = "https://www.worldometers.info/coronavirus/"
@@ -99,19 +99,20 @@ Public Class Form1
         pos1 = InStr(StrData, "Cases")
         pos1 = InStr(pos1 + 1, StrData, ":", vbTextCompare)
         pos2 = InStr(pos1 + 1, StrData, "Today", vbTextCompare)
-        pos3 = StrData.Substring(pos1, pos2 - pos1 - 21)
+        pos3 = StrData.Substring(pos1 + 1, pos2 - pos1 - 4)
         GunaLabel2.Text = pos3
 
-        pos4 = InStr(StrData, "Cases: 81 |")
-        pos4 = InStr(pos1 + 1, StrData, "Today:", vbTextCompare)
-        pos5 = InStr(pos1 + 1, StrData, " | Death", vbTextCompare)
-        pos6 = StrData.Substring(pos4 + 23, pos5 - pos4 - 23)
+        pos4 = InStr(StrData, "Cases:")
+        pos4 = InStr(pos4 + 1, StrData, "Today:", vbTextCompare)
+        pos5 = InStr(pos4 + 1, StrData, " | Death", vbTextCompare)
+        pos6 = StrData.Substring(pos4 + 19, pos5 - pos4 - 19)
+
         GunaLabel4.Text = pos6
 
-        pos7 = InStr(StrData, "Today: 33")
-        pos7 = InStr(pos1 + 1, StrData, " | Death:", vbTextCompare)
-        pos8 = InStr(pos1 + 1, StrData, "Opening", vbTextCompare)
-        pos9 = StrData.Substring(pos7 + 26, pos8 - pos7 - 450)
+        pos7 = InStr(StrData, "Today")
+        pos7 = InStr(pos7 + 1, StrData, " | Death:", vbTextCompare)
+        pos8 = InStr(pos7 + 1, StrData, "Opening", vbTextCompare)
+        pos9 = StrData.Substring(pos7 + 9, pos8 - pos7 - 282)
         GunaLabel5.Text = pos9
 
         GunaCircleProgressBar1.Value = pos3
@@ -149,6 +150,7 @@ Public Class Form1
     Private Sub NotifyIcon1_MouseClick(sender As Object, e As MouseEventArgs) Handles NotifyIcon1.Click
 
 
+
         Dim besafe As String = "https://besafemoris.mu/"
 
         Dim worldometer As String = "https://www.worldometers.info/coronavirus/"
@@ -162,7 +164,7 @@ Public Class Form1
         pos1 = InStr(StrData, "Cases")
         pos1 = InStr(pos1 + 1, StrData, ":", vbTextCompare)
         pos2 = InStr(pos1 + 1, StrData, "Today", vbTextCompare)
-        pos3 = StrData.Substring(pos1, pos2 - pos1 - 21)
+        pos3 = StrData.Substring(pos1 + 1, pos2 - pos1 - 4)
         GunaLabel2.Text = pos3
         NotifyIcon1.Text = "Cases" + pos3
 
@@ -195,19 +197,20 @@ Public Class Form1
         pos1 = InStr(StrData, "Cases")
         pos1 = InStr(pos1 + 1, StrData, ":", vbTextCompare)
         pos2 = InStr(pos1 + 1, StrData, "Today", vbTextCompare)
-        pos3 = StrData.Substring(pos1, pos2 - pos1 - 21)
+        pos3 = StrData.Substring(pos1 + 1, pos2 - pos1 - 4)
         GunaLabel2.Text = pos3
 
-        pos4 = InStr(StrData, "Cases: 81 |")
-        pos4 = InStr(pos1 + 1, StrData, "Today:", vbTextCompare)
-        pos5 = InStr(pos1 + 1, StrData, " | Death", vbTextCompare)
-        pos6 = StrData.Substring(pos4 + 23, pos5 - pos4 - 23)
+        pos4 = InStr(StrData, "Cases:")
+        pos4 = InStr(pos4 + 1, StrData, "Today:", vbTextCompare)
+        pos5 = InStr(pos4 + 1, StrData, " | Death", vbTextCompare)
+        pos6 = StrData.Substring(pos4 + 19, pos5 - pos4 - 19)
+
         GunaLabel4.Text = pos6
 
-        pos7 = InStr(StrData, "Today: 33")
-        pos7 = InStr(pos1 + 1, StrData, " | Death:", vbTextCompare)
-        pos8 = InStr(pos1 + 1, StrData, "Opening", vbTextCompare)
-        pos9 = StrData.Substring(pos7 + 26, pos8 - pos7 - 450)
+        pos7 = InStr(StrData, "Today")
+        pos7 = InStr(pos7 + 1, StrData, " | Death:", vbTextCompare)
+        pos8 = InStr(pos7 + 1, StrData, "Opening", vbTextCompare)
+        pos9 = StrData.Substring(pos7 + 9, pos8 - pos7 - 282)
         GunaLabel5.Text = pos9
 
         GunaCircleProgressBar1.Value = pos3
@@ -232,7 +235,6 @@ Public Class Form1
         GunaLabel7.Text = pos12
 
         GunaCircleProgressBar4.Value = pos12
-
 
 
 
