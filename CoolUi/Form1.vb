@@ -85,6 +85,7 @@ Public Class Form1
     Private Sub GunaButton1_Click(sender As Object, e As EventArgs) Handles GunaButton1.Click
 
 
+
         Dim besafe As String = "https://besafemoris.mu/"
 
         Dim worldometer As String = "https://www.worldometers.info/coronavirus/"
@@ -131,7 +132,7 @@ Public Class Form1
         pos10 = InStr(StrData2, "Coronavirus")
         pos10 = InStr(pos10 + 1, StrData2, "Cases:", vbTextCompare)
         pos11 = InStr(pos10 + 1, StrData2, "view by country", vbTextCompare)
-        pos12 = StrData2.Substring(pos10 + 81, pos11 - pos10 - 171)
+        pos12 = StrData2.Substring(pos10 + 69, pos11 - pos10 - 146)
         GunaLabel7.Text = pos12
 
         GunaCircleProgressBar4.Value = pos12
@@ -227,7 +228,7 @@ Public Class Form1
         pos10 = InStr(StrData2, "Coronavirus")
         pos10 = InStr(pos10 + 1, StrData2, "Cases:", vbTextCompare)
         pos11 = InStr(pos10 + 1, StrData2, "view by country", vbTextCompare)
-        pos12 = StrData2.Substring(pos10 + 81, pos11 - pos10 - 171)
+        pos12 = StrData2.Substring(pos10 + 69, pos11 - pos10 - 146)
         GunaLabel7.Text = pos12
 
         GunaCircleProgressBar4.Value = pos12
