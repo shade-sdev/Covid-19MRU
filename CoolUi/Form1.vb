@@ -1,5 +1,6 @@
 ﻿Imports System.IO
 Imports System.Net
+Imports System.Text.RegularExpressions
 
 Public Class Form1
 
@@ -19,8 +20,10 @@ Public Class Form1
 
     Private Sub Form1_Load_1(sender As Object, e As EventArgs) Handles MyBase.Load
 
-
-
+        Dim cases As String
+        Dim casetoday As String
+        Dim death As String
+        Dim casesglobal As String
 
 
         Dim besafe As String = "https://besafemoris.mu/"
@@ -36,25 +39,29 @@ Public Class Form1
         pos1 = InStr(StrData, "Cases")
         pos1 = InStr(pos1 + 1, StrData, ":", vbTextCompare)
         pos2 = InStr(pos1 + 1, StrData, "Today", vbTextCompare)
-        pos3 = StrData.Substring(pos1 + 1, pos2 - pos1 - 4)
-        GunaLabel2.Text = pos3
+        pos3 = StrData.Substring(pos1, pos2 - pos1)
+        cases = Integer.Parse(Regex.Replace(pos3, "[^\d]", ""))
+        GunaLabel2.Text = cases
+
 
         pos4 = InStr(StrData, "Cases:")
         pos4 = InStr(pos4 + 1, StrData, "Today:", vbTextCompare)
         pos5 = InStr(pos4 + 1, StrData, " | Death", vbTextCompare)
-        pos6 = StrData.Substring(pos4 + 19, pos5 - pos4 - 19)
+        pos6 = StrData.Substring(pos4, pos5 - pos4)
+        casetoday = Integer.Parse(Regex.Replace(pos6, "[^\d]", ""))
+        GunaLabel4.Text = casetoday
 
-        GunaLabel4.Text = pos6
 
         pos7 = InStr(StrData, "Today")
         pos7 = InStr(pos7 + 1, StrData, " | Death:", vbTextCompare)
         pos8 = InStr(pos7 + 1, StrData, "Opening", vbTextCompare)
-        pos9 = StrData.Substring(pos7 + 9, pos8 - pos7 - 282)
-        GunaLabel5.Text = pos9
+        pos9 = StrData.Substring(pos7, pos8 - pos7)
+        death = Integer.Parse(Regex.Replace(pos9, "[^\d]", ""))
+        GunaLabel5.Text = death
 
-        GunaCircleProgressBar1.Value = pos3
-        GunaCircleProgressBar2.Value = pos6
-        GunaCircleProgressBar3.Value = pos9
+        GunaCircleProgressBar1.Value = cases
+        GunaCircleProgressBar2.Value = casetoday
+        GunaCircleProgressBar3.Value = death
 
 
 
@@ -70,10 +77,11 @@ Public Class Form1
         pos10 = InStr(StrData2, "Coronavirus")
         pos10 = InStr(pos10 + 1, StrData2, "Cases:", vbTextCompare)
         pos11 = InStr(pos10 + 1, StrData2, "view by country", vbTextCompare)
-        pos12 = StrData2.Substring(pos10 + 69, pos11 - pos10 - 146)
-        GunaLabel7.Text = pos12
+        pos12 = StrData2.Substring(pos10 + 10, pos11 - pos10)
+        casesglobal = Integer.Parse(Regex.Replace(pos12, "[^\d]", ""))
+        GunaLabel7.Text = casesglobal
 
-        GunaCircleProgressBar4.Value = pos12
+        GunaCircleProgressBar4.Value = casesglobal
 
 
     End Sub
@@ -86,6 +94,13 @@ Public Class Form1
     Private Sub GunaButton1_Click(sender As Object, e As EventArgs) Handles GunaButton1.Click
 
 
+
+        Dim cases As String
+        Dim casetoday As String
+        Dim death As String
+        Dim casesglobal As String
+
+
         Dim besafe As String = "https://besafemoris.mu/"
 
         Dim worldometer As String = "https://www.worldometers.info/coronavirus/"
@@ -99,25 +114,29 @@ Public Class Form1
         pos1 = InStr(StrData, "Cases")
         pos1 = InStr(pos1 + 1, StrData, ":", vbTextCompare)
         pos2 = InStr(pos1 + 1, StrData, "Today", vbTextCompare)
-        pos3 = StrData.Substring(pos1 + 1, pos2 - pos1 - 4)
-        GunaLabel2.Text = pos3
+        pos3 = StrData.Substring(pos1, pos2 - pos1)
+        cases = Integer.Parse(Regex.Replace(pos3, "[^\d]", ""))
+        GunaLabel2.Text = cases
+
 
         pos4 = InStr(StrData, "Cases:")
         pos4 = InStr(pos4 + 1, StrData, "Today:", vbTextCompare)
         pos5 = InStr(pos4 + 1, StrData, " | Death", vbTextCompare)
-        pos6 = StrData.Substring(pos4 + 19, pos5 - pos4 - 19)
+        pos6 = StrData.Substring(pos4, pos5 - pos4)
+        casetoday = Integer.Parse(Regex.Replace(pos6, "[^\d]", ""))
+        GunaLabel4.Text = casetoday
 
-        GunaLabel4.Text = pos6
 
         pos7 = InStr(StrData, "Today")
         pos7 = InStr(pos7 + 1, StrData, " | Death:", vbTextCompare)
         pos8 = InStr(pos7 + 1, StrData, "Opening", vbTextCompare)
-        pos9 = StrData.Substring(pos7 + 9, pos8 - pos7 - 282)
-        GunaLabel5.Text = pos9
+        pos9 = StrData.Substring(pos7, pos8 - pos7)
+        death = Integer.Parse(Regex.Replace(pos9, "[^\d]", ""))
+        GunaLabel5.Text = death
 
-        GunaCircleProgressBar1.Value = pos3
-        GunaCircleProgressBar2.Value = pos6
-        GunaCircleProgressBar3.Value = pos9
+        GunaCircleProgressBar1.Value = cases
+        GunaCircleProgressBar2.Value = casetoday
+        GunaCircleProgressBar3.Value = death
 
 
 
@@ -133,13 +152,11 @@ Public Class Form1
         pos10 = InStr(StrData2, "Coronavirus")
         pos10 = InStr(pos10 + 1, StrData2, "Cases:", vbTextCompare)
         pos11 = InStr(pos10 + 1, StrData2, "view by country", vbTextCompare)
-        pos12 = StrData2.Substring(pos10 + 69, pos11 - pos10 - 146)
-        GunaLabel7.Text = pos12
+        pos12 = StrData2.Substring(pos10 + 10, pos11 - pos10)
+        casesglobal = Integer.Parse(Regex.Replace(pos12, "[^\d]", ""))
+        GunaLabel7.Text = casesglobal
 
-        GunaCircleProgressBar4.Value = pos12
-
-
-
+        GunaCircleProgressBar4.Value = casesglobal
 
 
 
@@ -150,7 +167,7 @@ Public Class Form1
     Private Sub NotifyIcon1_MouseClick(sender As Object, e As MouseEventArgs) Handles NotifyIcon1.Click
 
 
-
+        Dim cases As String
         Dim besafe As String = "https://besafemoris.mu/"
 
         Dim worldometer As String = "https://www.worldometers.info/coronavirus/"
@@ -164,12 +181,13 @@ Public Class Form1
         pos1 = InStr(StrData, "Cases")
         pos1 = InStr(pos1 + 1, StrData, ":", vbTextCompare)
         pos2 = InStr(pos1 + 1, StrData, "Today", vbTextCompare)
-        pos3 = StrData.Substring(pos1 + 1, pos2 - pos1 - 4)
-        GunaLabel2.Text = pos3
-        NotifyIcon1.Text = "Cases" + pos3
+        pos3 = StrData.Substring(pos1, pos2 - pos1)
+        cases = Integer.Parse(Regex.Replace(pos3, "[^\d]", ""))
+
+        NotifyIcon1.Text = "Cases" + cases
 
         NotifyIcon1.BalloonTipTitle = "Covid"
-        NotifyIcon1.ShowBalloonTip(pos3, "Cases", pos3, ToolTipIcon.Info)
+        NotifyIcon1.ShowBalloonTip(cases, "Cases", cases, ToolTipIcon.Info)
     End Sub
 
     Private Sub GunaButton2_Click(sender As Object, e As EventArgs) Handles GunaButton2.Click
@@ -183,6 +201,11 @@ Public Class Form1
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
 
 
+        Dim cases As String
+        Dim casetoday As String
+        Dim death As String
+        Dim casesglobal As String
+
 
         Dim besafe As String = "https://besafemoris.mu/"
 
@@ -197,25 +220,29 @@ Public Class Form1
         pos1 = InStr(StrData, "Cases")
         pos1 = InStr(pos1 + 1, StrData, ":", vbTextCompare)
         pos2 = InStr(pos1 + 1, StrData, "Today", vbTextCompare)
-        pos3 = StrData.Substring(pos1 + 1, pos2 - pos1 - 4)
-        GunaLabel2.Text = pos3
+        pos3 = StrData.Substring(pos1, pos2 - pos1)
+        cases = Integer.Parse(Regex.Replace(pos3, "[^\d]", ""))
+        GunaLabel2.Text = cases
+
 
         pos4 = InStr(StrData, "Cases:")
         pos4 = InStr(pos4 + 1, StrData, "Today:", vbTextCompare)
         pos5 = InStr(pos4 + 1, StrData, " | Death", vbTextCompare)
-        pos6 = StrData.Substring(pos4 + 19, pos5 - pos4 - 19)
+        pos6 = StrData.Substring(pos4, pos5 - pos4)
+        casetoday = Integer.Parse(Regex.Replace(pos6, "[^\d]", ""))
+        GunaLabel4.Text = casetoday
 
-        GunaLabel4.Text = pos6
 
         pos7 = InStr(StrData, "Today")
         pos7 = InStr(pos7 + 1, StrData, " | Death:", vbTextCompare)
         pos8 = InStr(pos7 + 1, StrData, "Opening", vbTextCompare)
-        pos9 = StrData.Substring(pos7 + 9, pos8 - pos7 - 282)
-        GunaLabel5.Text = pos9
+        pos9 = StrData.Substring(pos7, pos8 - pos7)
+        death = Integer.Parse(Regex.Replace(pos9, "[^\d]", ""))
+        GunaLabel5.Text = death
 
-        GunaCircleProgressBar1.Value = pos3
-        GunaCircleProgressBar2.Value = pos6
-        GunaCircleProgressBar3.Value = pos9
+        GunaCircleProgressBar1.Value = cases
+        GunaCircleProgressBar2.Value = casetoday
+        GunaCircleProgressBar3.Value = death
 
 
 
@@ -231,12 +258,11 @@ Public Class Form1
         pos10 = InStr(StrData2, "Coronavirus")
         pos10 = InStr(pos10 + 1, StrData2, "Cases:", vbTextCompare)
         pos11 = InStr(pos10 + 1, StrData2, "view by country", vbTextCompare)
-        pos12 = StrData2.Substring(pos10 + 69, pos11 - pos10 - 146)
-        GunaLabel7.Text = pos12
+        pos12 = StrData2.Substring(pos10 + 10, pos11 - pos10)
+        casesglobal = Integer.Parse(Regex.Replace(pos12, "[^\d]", ""))
+        GunaLabel7.Text = casesglobal
 
-        GunaCircleProgressBar4.Value = pos12
-
-
+        GunaCircleProgressBar4.Value = casesglobal
 
     End Sub
 
