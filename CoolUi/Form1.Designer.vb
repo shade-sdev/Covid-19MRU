@@ -82,7 +82,7 @@ Partial Class Form1
         Me.GunaCircleProgressBar1.Image = Nothing
         Me.GunaCircleProgressBar1.ImageSize = New System.Drawing.Size(10, 10)
         Me.GunaCircleProgressBar1.Location = New System.Drawing.Point(273, 39)
-        Me.GunaCircleProgressBar1.Maximum = 5000
+        Me.GunaCircleProgressBar1.Maximum = 50000
         Me.GunaCircleProgressBar1.Name = "GunaCircleProgressBar1"
         Me.GunaCircleProgressBar1.ProgressMaxColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.GunaCircleProgressBar1.ProgressMinColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
@@ -155,9 +155,9 @@ Partial Class Form1
         Me.GunaLabel3.ForeColor = System.Drawing.SystemColors.ButtonShadow
         Me.GunaLabel3.Location = New System.Drawing.Point(12, 11)
         Me.GunaLabel3.Name = "GunaLabel3"
-        Me.GunaLabel3.Size = New System.Drawing.Size(174, 17)
+        Me.GunaLabel3.Size = New System.Drawing.Size(255, 17)
         Me.GunaLabel3.TabIndex = 3
-        Me.GunaLabel3.Text = "Cases Today In MAURITUS"
+        Me.GunaLabel3.Text = "Recovered from Covid-19 In MAURITUS"
         '
         'GunaLabel4
         '

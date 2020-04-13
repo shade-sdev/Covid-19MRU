@@ -3,82 +3,68 @@ Imports System.Net
 Imports System.Text.RegularExpressions
 
 Public Class Form1
-
     Dim pos1 As Long, pos2 As Long, pos3 As String
 
     Dim pos4 As Long, pos5 As Long, pos6 As String
 
-    Dim pos7 As Long, pos8 As Long, pos9 As String
+    Dim pos7 As String
 
     Dim pos10 As Long, pos11 As Long, pos12 As String
 
-    Dim c As Integer = 2
 
-    Private Sub Form1_Load(sender As Object, e As EventArgs)
+    Dim cases As String
+    Dim recov As String
+    Dim death As String
+    Dim casesglobal As String
 
-    End Sub
-
+    Dim c As Integer = 0
     Private Sub Form1_Load_1(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        Dim cases As String
-        Dim casetoday As String
-        Dim death As String
-        Dim casesglobal As String
-
-
-        Dim besafe As String = "https://besafemoris.mu/"
-
-        Dim worldometer As String = "https://www.worldometers.info/coronavirus/"
-
-        Dim request As WebRequest = WebRequest.Create(besafe)
-        Dim response As HttpWebResponse = CType(request.GetResponse(), HttpWebResponse)
+        Dim request As WebRequest = WebRequest.Create("https://en.wikipedia.org/wiki/Template:2019%E2%80%9320_coronavirus_pandemic_data#covid19-container")
+        Dim response As HttpWebResponse = CType(request.GetResponse, HttpWebResponse)
         Dim dataStream As Stream = response.GetResponseStream
         Dim reader As New StreamReader(dataStream)
         Dim StrData As String = reader.ReadToEnd
 
-        pos1 = InStr(StrData, "Cases")
-        pos1 = InStr(pos1 + 1, StrData, ":", vbTextCompare)
-        pos2 = InStr(pos1 + 1, StrData, "Today", vbTextCompare)
-        pos3 = StrData.Substring(pos1, pos2 - pos1)
-        cases = Integer.Parse(Regex.Replace(pos3, "[^\d]", ""))
+
+        pos1 = InStr(StrData, "Mauri")
+        pos1 = InStr(pos1 + 1, StrData, "tius", vbTextCompare)
+        pos2 = InStr(pos1 + 1, StrData, "Nigeria", vbTextCompare)
+        pos3 = StrData.Substring(pos1 + 500, pos2 - pos1 - 685)
+
+        pos4 = Integer.Parse(Regex.Replace(pos3, "[^\d]", ""))
+
+        cases = pos4.ToString().Substring(0, 3)
+
+
         GunaLabel2.Text = cases
 
+        pos5 = Integer.Parse(Regex.Replace(pos3, "[^\d]", ""))
 
-        pos4 = InStr(StrData, "Cases:")
-        pos4 = InStr(pos4 + 1, StrData, "Today:", vbTextCompare)
-        pos5 = InStr(pos4 + 1, StrData, " | Death", vbTextCompare)
-        pos6 = StrData.Substring(pos4, pos5 - pos4)
-        casetoday = Integer.Parse(Regex.Replace(pos6, "[^\d]", ""))
-        GunaLabel4.Text = casetoday
+        recov = pos4.ToString().Substring(4, 2)
 
+        GunaLabel4.Text = recov
 
-        pos7 = InStr(StrData, "Today")
-        pos7 = InStr(pos7 + 1, StrData, " | Death:", vbTextCompare)
-        pos8 = InStr(pos7 + 1, StrData, "Opening", vbTextCompare)
-        pos9 = StrData.Substring(pos7, pos8 - pos7)
-        death = Integer.Parse(Regex.Replace(pos9, "[^\d]", ""))
+        pos6 = Integer.Parse(Regex.Replace(pos3, "[^\d]", ""))
+
+        pos7 = pos6.Replace(cases, "")
+
+        death = pos7.Replace(recov, "")
+
         GunaLabel5.Text = death
 
         GunaCircleProgressBar1.Value = cases
-        GunaCircleProgressBar2.Value = casetoday
+        GunaCircleProgressBar2.Value = recov
         GunaCircleProgressBar3.Value = death
 
 
-
-
-
-        Dim request2 As WebRequest = WebRequest.Create(worldometer)
-        Dim response2 As HttpWebResponse = CType(request2.GetResponse(), HttpWebResponse)
-        Dim dataStream2 As Stream = response2.GetResponseStream
-        Dim reader2 As New StreamReader(dataStream2)
-        Dim StrData2 As String = reader2.ReadToEnd
-
-
-        pos10 = InStr(StrData2, "Coronavirus")
-        pos10 = InStr(pos10 + 1, StrData2, "Cases:", vbTextCompare)
-        pos11 = InStr(pos10 + 1, StrData2, "view by country", vbTextCompare)
-        pos12 = StrData2.Substring(pos10 + 10, pos11 - pos10)
+        pos10 = InStr(StrData, "Ref")
+        pos10 = InStr(pos10 + 1, StrData, "232", vbTextCompare)
+        pos11 = InStr(pos10 + 1, StrData, "United States", vbTextCompare)
+        pos12 = StrData.Substring(pos10 + 670, pos11 - pos10 - 2800)
         casesglobal = Integer.Parse(Regex.Replace(pos12, "[^\d]", ""))
+
+
         GunaLabel7.Text = casesglobal
 
         GunaCircleProgressBar4.Value = casesglobal
@@ -94,69 +80,55 @@ Public Class Form1
     Private Sub GunaButton1_Click(sender As Object, e As EventArgs) Handles GunaButton1.Click
 
 
-
-        Dim cases As String
-        Dim casetoday As String
-        Dim death As String
-        Dim casesglobal As String
-
-
-        Dim besafe As String = "https://besafemoris.mu/"
-
-        Dim worldometer As String = "https://www.worldometers.info/coronavirus/"
-
-        Dim request As WebRequest = WebRequest.Create(besafe)
-        Dim response As HttpWebResponse = CType(request.GetResponse(), HttpWebResponse)
+        Dim request As WebRequest = WebRequest.Create("https://en.wikipedia.org/wiki/Template:2019%E2%80%9320_coronavirus_pandemic_data#covid19-container")
+        Dim response As HttpWebResponse = CType(request.GetResponse, HttpWebResponse)
         Dim dataStream As Stream = response.GetResponseStream
         Dim reader As New StreamReader(dataStream)
         Dim StrData As String = reader.ReadToEnd
 
-        pos1 = InStr(StrData, "Cases")
-        pos1 = InStr(pos1 + 1, StrData, ":", vbTextCompare)
-        pos2 = InStr(pos1 + 1, StrData, "Today", vbTextCompare)
-        pos3 = StrData.Substring(pos1, pos2 - pos1)
-        cases = Integer.Parse(Regex.Replace(pos3, "[^\d]", ""))
+
+        pos1 = InStr(StrData, "Mauri")
+        pos1 = InStr(pos1 + 1, StrData, "tius", vbTextCompare)
+        pos2 = InStr(pos1 + 1, StrData, "Nigeria", vbTextCompare)
+        pos3 = StrData.Substring(pos1 + 500, pos2 - pos1 - 685)
+
+        pos4 = Integer.Parse(Regex.Replace(pos3, "[^\d]", ""))
+
+        cases = pos4.ToString().Substring(0, 3)
+
+
         GunaLabel2.Text = cases
 
+        pos5 = Integer.Parse(Regex.Replace(pos3, "[^\d]", ""))
 
-        pos4 = InStr(StrData, "Cases:")
-        pos4 = InStr(pos4 + 1, StrData, "Today:", vbTextCompare)
-        pos5 = InStr(pos4 + 1, StrData, " | Death", vbTextCompare)
-        pos6 = StrData.Substring(pos4, pos5 - pos4)
-        casetoday = Integer.Parse(Regex.Replace(pos6, "[^\d]", ""))
-        GunaLabel4.Text = casetoday
+        recov = pos4.ToString().Substring(4, 2)
 
+        GunaLabel4.Text = recov
 
-        pos7 = InStr(StrData, "Today")
-        pos7 = InStr(pos7 + 1, StrData, " | Death:", vbTextCompare)
-        pos8 = InStr(pos7 + 1, StrData, "Opening", vbTextCompare)
-        pos9 = StrData.Substring(pos7, pos8 - pos7)
-        death = Integer.Parse(Regex.Replace(pos9, "[^\d]", ""))
+        pos6 = Integer.Parse(Regex.Replace(pos3, "[^\d]", ""))
+
+        pos7 = pos6.Replace(cases, "")
+
+        death = pos7.Replace(recov, "")
+
         GunaLabel5.Text = death
 
         GunaCircleProgressBar1.Value = cases
-        GunaCircleProgressBar2.Value = casetoday
+        GunaCircleProgressBar2.Value = recov
         GunaCircleProgressBar3.Value = death
 
 
-
-
-
-        Dim request2 As WebRequest = WebRequest.Create(worldometer)
-        Dim response2 As HttpWebResponse = CType(request2.GetResponse(), HttpWebResponse)
-        Dim dataStream2 As Stream = response2.GetResponseStream
-        Dim reader2 As New StreamReader(dataStream2)
-        Dim StrData2 As String = reader2.ReadToEnd
-
-
-        pos10 = InStr(StrData2, "Coronavirus")
-        pos10 = InStr(pos10 + 1, StrData2, "Cases:", vbTextCompare)
-        pos11 = InStr(pos10 + 1, StrData2, "view by country", vbTextCompare)
-        pos12 = StrData2.Substring(pos10 + 10, pos11 - pos10)
+        pos10 = InStr(StrData, "Ref")
+        pos10 = InStr(pos10 + 1, StrData, "232", vbTextCompare)
+        pos11 = InStr(pos10 + 1, StrData, "United States", vbTextCompare)
+        pos12 = StrData.Substring(pos10 + 670, pos11 - pos10 - 2800)
         casesglobal = Integer.Parse(Regex.Replace(pos12, "[^\d]", ""))
+
+
         GunaLabel7.Text = casesglobal
 
         GunaCircleProgressBar4.Value = casesglobal
+
 
 
 
@@ -166,28 +138,9 @@ Public Class Form1
 
     Private Sub NotifyIcon1_MouseClick(sender As Object, e As MouseEventArgs) Handles NotifyIcon1.Click
 
+        Me.Show()
 
-        Dim cases As String
-        Dim besafe As String = "https://besafemoris.mu/"
 
-        Dim worldometer As String = "https://www.worldometers.info/coronavirus/"
-
-        Dim request As WebRequest = WebRequest.Create(besafe)
-        Dim response As HttpWebResponse = CType(request.GetResponse(), HttpWebResponse)
-        Dim dataStream As Stream = response.GetResponseStream
-        Dim reader As New StreamReader(dataStream)
-        Dim StrData As String = reader.ReadToEnd
-
-        pos1 = InStr(StrData, "Cases")
-        pos1 = InStr(pos1 + 1, StrData, ":", vbTextCompare)
-        pos2 = InStr(pos1 + 1, StrData, "Today", vbTextCompare)
-        pos3 = StrData.Substring(pos1, pos2 - pos1)
-        cases = Integer.Parse(Regex.Replace(pos3, "[^\d]", ""))
-
-        NotifyIcon1.Text = "Cases" + cases
-
-        NotifyIcon1.BalloonTipTitle = "Covid"
-        NotifyIcon1.ShowBalloonTip(cases, "Cases", cases, ToolTipIcon.Info)
     End Sub
 
     Private Sub GunaButton2_Click(sender As Object, e As EventArgs) Handles GunaButton2.Click
@@ -195,74 +148,69 @@ Public Class Form1
     End Sub
 
     Private Sub NotifyIcon1_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles NotifyIcon1.MouseDoubleClick
-        Me.Show()
+
+
+
+        NotifyIcon1.Text = "Cases " + cases
+
+        NotifyIcon1.BalloonTipTitle = "Covid"
+        NotifyIcon1.ShowBalloonTip(cases, "Cases", cases, ToolTipIcon.Info)
     End Sub
+
+
+
 
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
 
-
-        Dim cases As String
-        Dim casetoday As String
-        Dim death As String
-        Dim casesglobal As String
-
-
-        Dim besafe As String = "https://besafemoris.mu/"
-
-        Dim worldometer As String = "https://www.worldometers.info/coronavirus/"
-
-        Dim request As WebRequest = WebRequest.Create(besafe)
-        Dim response As HttpWebResponse = CType(request.GetResponse(), HttpWebResponse)
+        Dim request As WebRequest = WebRequest.Create("https://en.wikipedia.org/wiki/Template:2019%E2%80%9320_coronavirus_pandemic_data#covid19-container")
+        Dim response As HttpWebResponse = CType(request.GetResponse, HttpWebResponse)
         Dim dataStream As Stream = response.GetResponseStream
         Dim reader As New StreamReader(dataStream)
         Dim StrData As String = reader.ReadToEnd
 
-        pos1 = InStr(StrData, "Cases")
-        pos1 = InStr(pos1 + 1, StrData, ":", vbTextCompare)
-        pos2 = InStr(pos1 + 1, StrData, "Today", vbTextCompare)
-        pos3 = StrData.Substring(pos1, pos2 - pos1)
-        cases = Integer.Parse(Regex.Replace(pos3, "[^\d]", ""))
+
+        pos1 = InStr(StrData, "Mauri")
+        pos1 = InStr(pos1 + 1, StrData, "tius", vbTextCompare)
+        pos2 = InStr(pos1 + 1, StrData, "Nigeria", vbTextCompare)
+        pos3 = StrData.Substring(pos1 + 500, pos2 - pos1 - 685)
+
+        pos4 = Integer.Parse(Regex.Replace(pos3, "[^\d]", ""))
+
+        cases = pos4.ToString().Substring(0, 3)
+
+
         GunaLabel2.Text = cases
 
+        pos5 = Integer.Parse(Regex.Replace(pos3, "[^\d]", ""))
 
-        pos4 = InStr(StrData, "Cases:")
-        pos4 = InStr(pos4 + 1, StrData, "Today:", vbTextCompare)
-        pos5 = InStr(pos4 + 1, StrData, " | Death", vbTextCompare)
-        pos6 = StrData.Substring(pos4, pos5 - pos4)
-        casetoday = Integer.Parse(Regex.Replace(pos6, "[^\d]", ""))
-        GunaLabel4.Text = casetoday
+        recov = pos4.ToString().Substring(4, 2)
 
+        GunaLabel4.Text = recov
 
-        pos7 = InStr(StrData, "Today")
-        pos7 = InStr(pos7 + 1, StrData, " | Death:", vbTextCompare)
-        pos8 = InStr(pos7 + 1, StrData, "Opening", vbTextCompare)
-        pos9 = StrData.Substring(pos7, pos8 - pos7)
-        death = Integer.Parse(Regex.Replace(pos9, "[^\d]", ""))
+        pos6 = Integer.Parse(Regex.Replace(pos3, "[^\d]", ""))
+
+        pos7 = pos6.Replace(cases, "")
+
+        death = pos7.Replace(recov, "")
+
         GunaLabel5.Text = death
 
         GunaCircleProgressBar1.Value = cases
-        GunaCircleProgressBar2.Value = casetoday
+        GunaCircleProgressBar2.Value = recov
         GunaCircleProgressBar3.Value = death
 
 
-
-
-
-        Dim request2 As WebRequest = WebRequest.Create(worldometer)
-        Dim response2 As HttpWebResponse = CType(request2.GetResponse(), HttpWebResponse)
-        Dim dataStream2 As Stream = response2.GetResponseStream
-        Dim reader2 As New StreamReader(dataStream2)
-        Dim StrData2 As String = reader2.ReadToEnd
-
-
-        pos10 = InStr(StrData2, "Coronavirus")
-        pos10 = InStr(pos10 + 1, StrData2, "Cases:", vbTextCompare)
-        pos11 = InStr(pos10 + 1, StrData2, "view by country", vbTextCompare)
-        pos12 = StrData2.Substring(pos10 + 10, pos11 - pos10)
+        pos10 = InStr(StrData, "Ref")
+        pos10 = InStr(pos10 + 1, StrData, "232", vbTextCompare)
+        pos11 = InStr(pos10 + 1, StrData, "United States", vbTextCompare)
+        pos12 = StrData.Substring(pos10 + 670, pos11 - pos10 - 2800)
         casesglobal = Integer.Parse(Regex.Replace(pos12, "[^\d]", ""))
+
+
         GunaLabel7.Text = casesglobal
 
         GunaCircleProgressBar4.Value = casesglobal
+
 
     End Sub
 
@@ -323,4 +271,6 @@ Public Class Form1
 
 
     End Sub
+
+
 End Class
