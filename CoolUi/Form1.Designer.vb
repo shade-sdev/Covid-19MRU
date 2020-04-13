@@ -139,7 +139,7 @@ Partial Class Form1
         Me.GunaCircleProgressBar2.Image = Nothing
         Me.GunaCircleProgressBar2.ImageSize = New System.Drawing.Size(10, 10)
         Me.GunaCircleProgressBar2.Location = New System.Drawing.Point(284, 41)
-        Me.GunaCircleProgressBar2.Maximum = 5000
+        Me.GunaCircleProgressBar2.Maximum = 50000
         Me.GunaCircleProgressBar2.Name = "GunaCircleProgressBar2"
         Me.GunaCircleProgressBar2.ProgressMaxColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.GunaCircleProgressBar2.ProgressMinColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
@@ -192,7 +192,7 @@ Partial Class Form1
         Me.GunaCircleProgressBar3.Image = Nothing
         Me.GunaCircleProgressBar3.ImageSize = New System.Drawing.Size(10, 10)
         Me.GunaCircleProgressBar3.Location = New System.Drawing.Point(273, 41)
-        Me.GunaCircleProgressBar3.Maximum = 5000
+        Me.GunaCircleProgressBar3.Maximum = 50000
         Me.GunaCircleProgressBar3.Name = "GunaCircleProgressBar3"
         Me.GunaCircleProgressBar3.ProgressMaxColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.GunaCircleProgressBar3.ProgressMinColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
