@@ -54,8 +54,41 @@
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\..\..\..\Downloads\Compressed\mysql-for-visualstudio-1.2.9-noinstall\16.0v472\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="BouncyCastle.Crypto">
+      <HintPath>..\..\..\..\Downloads\Compressed\mysql-for-visualstudio-1.2.9-noinstall\16.0v472\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
     <Reference Include="Guna.UI">
       <HintPath>..\..\..\..\Downloads\Compressed\Guna.UI-Framework-Lib-master\Guna.UI-Framework-Lib-master\Guna.UI WinForms\.net 4.0\Guna.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data">
+      <HintPath>..\..\..\..\Downloads\Compressed\mysql-for-visualstudio-1.2.9-noinstall\16.0v472\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data.Entity">
+      <HintPath>..\..\..\..\Downloads\Compressed\mysql-for-visualstudio-1.2.9-noinstall\16.0v472\MySql.Data.Entity.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data.EntityFramework">
+      <HintPath>..\..\..\..\Downloads\Compressed\mysql-for-visualstudio-1.2.9-noinstall\16.0v472\MySql.Data.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Debugger">
+      <HintPath>..\..\..\..\Downloads\Compressed\mysql-for-visualstudio-1.2.9-noinstall\16.0v472\MySql.Debugger.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Debugger.VisualStudio">
+      <HintPath>..\..\..\..\Downloads\Compressed\mysql-for-visualstudio-1.2.9-noinstall\16.0v472\MySql.Debugger.VisualStudio.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Parser">
+      <HintPath>..\..\..\..\Downloads\Compressed\mysql-for-visualstudio-1.2.9-noinstall\16.0v472\MySql.Parser.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.VisualStudio">
+      <HintPath>..\..\..\..\Downloads\Compressed\mysql-for-visualstudio-1.2.9-noinstall\16.0v472\MySql.VisualStudio.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Web">
+      <HintPath>..\..\..\..\Downloads\Compressed\mysql-for-visualstudio-1.2.9-noinstall\16.0v472\MySql.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Renci.SshNet">
+      <HintPath>..\..\..\..\Downloads\Compressed\mysql-for-visualstudio-1.2.9-noinstall\16.0v472\Renci.SshNet.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />

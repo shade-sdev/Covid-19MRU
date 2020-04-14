@@ -155,9 +155,9 @@ Partial Class Form1
         Me.GunaLabel3.ForeColor = System.Drawing.SystemColors.ButtonShadow
         Me.GunaLabel3.Location = New System.Drawing.Point(12, 11)
         Me.GunaLabel3.Name = "GunaLabel3"
-        Me.GunaLabel3.Size = New System.Drawing.Size(255, 17)
+        Me.GunaLabel3.Size = New System.Drawing.Size(93, 17)
         Me.GunaLabel3.TabIndex = 3
-        Me.GunaLabel3.Text = "Recovered from Covid-19 In MAURITUS"
+        Me.GunaLabel3.Text = "Cases today"
         '
         'GunaLabel4
         '
