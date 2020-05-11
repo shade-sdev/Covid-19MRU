@@ -4,30 +4,36 @@ Imports System.Text.RegularExpressions
 Imports MySql.Data.MySqlClient
 
 Public Class Form1
-    Dim connection As New MySqlConnection("datasource=remotemysql.com;port=3306;database=ZXYxfFQAbj;username=ZXYxfFQAbj;password=fkt7QERsvG")
-    Dim c As Integer = 0
 
     Public cases As String
+    Public c As Integer = 0
     Private Sub Form1_Load_1(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim adapter As New MySqlDataAdapter("SELECT `cases`, `casestoday`, `deaths`, `www` FROM `Corona` WHERE id = 1", connection)
-        Dim table As New DataTable()
-        adapter.Fill(table)
 
 
-        GunaLabel2.Text = table(0)(0)
-        cases = table(0)(0)
-        GunaLabel4.Text = table(0)(1)
+        Dim uristring As String = ("https://api.covid19api.com/summary")
+        Dim uri As New Uri(uristring)
+        Dim request As HttpWebRequest = HttpWebRequest.Create(uri)
+        request.Method = "get"
+        Dim response As HttpWebResponse = request.GetResponse()
+        Dim read = New StreamReader(response.GetResponseStream)
+        Dim steamjson As String = read.ReadToEnd()
+        Dim read2 = Newtonsoft.Json.Linq.JObject.Parse(steamjson)
 
-        GunaLabel5.Text = table(0)(2)
+        cases = read2.Item("Countries")(107)("TotalConfirmed").ToString()
+        GunaLabel2.Text = read2.Item("Countries")(107)("TotalConfirmed").ToString()
 
-        GunaLabel7.Text = table(0)(3)
+        GunaLabel4.Text = read2.Item("Countries")(107)("NewConfirmed").ToString()
 
-        GunaCircleProgressBar1.Value = table(0)(0)
-        GunaCircleProgressBar2.Value = table(0)(1)
-        GunaCircleProgressBar3.Value = table(0)(2)
+        GunaLabel5.Text = read2.Item("Countries")(107)("TotalDeaths").ToString()
+
+        GunaLabel7.Text = read2.Item("Global")("TotalConfirmed").ToString()
+
+        GunaCircleProgressBar1.Value = read2.Item("Countries")(107)("TotalConfirmed").ToString()
+        GunaCircleProgressBar2.Value = read2.Item("Countries")(107)("NewConfirmed").ToString()
+        GunaCircleProgressBar3.Value = read2.Item("Countries")(107)("TotalDeaths").ToString()
 
 
-        GunaCircleProgressBar4.Value = table(0)(3)
+        GunaCircleProgressBar4.Value = GunaLabel7.Text = read2.Item("Global")("TotalConfirmed").ToString()
 
 
     End Sub
